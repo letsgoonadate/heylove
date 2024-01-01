@@ -1,0 +1,139 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #e9a3fb;
+    overflow: hidden; /* Prevents overflow of animated hearts */
+}
+
+#noButton {
+    position: absolute;
+    margin-left: 150px;
+    transition: 0.5s;
+}
+
+#yesButton {
+    position: absolute;
+    margin-right: 150px;
+}
+
+.header_text {
+    font-family: 'Nunito';
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.btn {
+    background-color: #a85fec;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.gif_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 320px) and (max-height: 568px) {
+    body {
+        height: 100vh;
+    }
+
+    .header_text {
+        font-size: 20px;
+    }
+
+    img {
+        height: 60vh;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 414px) and (max-height: 736px) {
+    body {
+        height: 90vh;
+    }
+
+    .header_text {
+        font-size: 28px;
+    }
+
+    img {
+        height: 60vh;
+    }
+
+    .btn {
+        padding: 15px 25px;
+        font-size: 14px;
+    }
+}
+
+/* Heart animation */
+@keyframes heartFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg) scale(0.1);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Style for the hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform-origin: center;
+    animation: heartFall 3s linear infinite; /* Adjust timing or other properties as needed */
+}
+
+/* Additional styling for the heart shape */
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    transform: rotate(45deg);
+}
+
+.heart::after {
+    transform: rotate(-45deg);
+}
